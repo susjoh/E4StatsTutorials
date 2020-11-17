@@ -19,6 +19,7 @@ This Tutorial set can be installed and run within R. It requires RStudio (v1.3.1
 The tutorials can be accessed by clicking "Tutorial" tab in the top right pane. Please see the **Troubleshooting** section below if you cannot get these to run. Alternatively, tutorials can be accessed at the following links:
 
 Part 1: https://sejohnston.shinyapps.io/Tutorial1_E4_Introduction_to_R/
+
 Part 2: https://sejohnston.shinyapps.io/Tutorial2_E4_RMarkdown_and_Stats/
 
 You can download the data by clicking "Code" and "Download ZIP" above and extracting the "data" folder. The answers, presentations, data and images for the Repository are also included in the ZIP bundle, so may be generally a good idea to download it. 
