@@ -1,6 +1,13 @@
 ## Using R as a Research Tool
 
-This repository contains Tutorials for the NERC E4 DTP course on "Using R as a Research Tool" at the School of Geosciences at the University of Edinburgh.
+This repository contains Tutorials for the NERC E4 DTP course on "Using R as a Research Tool" at the School of Geosciences at the University of Edinburgh. These lessons will cover:
+
+* Structuring a research project.
+* Reading in and managing data.
+* Data visualisation.
+* Basic statistics.
+* Generating reports.
+* Publishing research projects.
 
 This package requires RStudio (v1.3.1093 or later). Run the following to install:
 
