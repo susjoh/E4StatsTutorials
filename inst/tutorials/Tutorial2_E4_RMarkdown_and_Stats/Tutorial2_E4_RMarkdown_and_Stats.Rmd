@@ -19,7 +19,7 @@ knitr::opts_chunk$set( message=F, results = "hide")
 
 ## Introduction
 
-This tutorial is based on [R4all](http://r4all.org/) and [Our Coding Club](https://ourcodingclub.github.io/). Data, code, answers and an **R** Markdown Cheat Sheet is included in the github repository: https://github.com/susjoh/Intro_to_Stats_in_R. 
+This tutorial is based on [R4all](http://r4all.org/) and [Our Coding Club](https://ourcodingclub.github.io/). Data and an **R** Markdown Cheat Sheet is included in the github repository: [https://github.com/susjoh/E4StatsTutorials](https://github.com/susjoh/E4StatsTutorials). 
 
 This practical will explore how to write reports in **R** Markdown and how to conduct simple statistical tests. By the end, you should be able to:
 
@@ -289,7 +289,7 @@ Create a short report in the **R** Markdown document with an inline report of th
 
 1. Add a code chunk for loading and manipulating the data above, and running the $\chi^{2}$ test.
 2. Edit the previous chunk options so that it does **not** print the code or results to the compiled document. <details><summary><font color="blue">Hint:</font></summary>
-Define `echo` and `results` in the chunk options.
+Define `echo` and `results` or `include` in the chunk options.
 </details>
 
 3. Write a few lines of text stating the test statistic and interpretation, e.g.:

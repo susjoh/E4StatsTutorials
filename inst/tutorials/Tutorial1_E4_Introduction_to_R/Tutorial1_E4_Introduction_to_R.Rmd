@@ -13,7 +13,7 @@ library(learnr)
 
 ## Introduction
 
-This tutorial is based on information from [Our Coding Club](https://ourcodingclub.github.io/) and [R4all](http://r4all.org/). The datasets for this tutorial can be downloaded from [https://github.com/susjoh/Intro_to_R](https://github.com/susjoh/Intro_to_R)
+This tutorial is based on information from [Our Coding Club](https://ourcodingclub.github.io/) and [R4all](http://r4all.org/). The datasets for this tutorial can be downloaded from [https://github.com/susjoh/E4StatsTutorials](https://github.com/susjoh/E4StatsTutorials)
 
 ### What is **R**?
 

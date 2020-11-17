@@ -1,0 +1,92 @@
+---
+title: Introduction to Statistics in R
+author: Susan Johnston
+date: 17 November 2020
+output: html_document 
+---
+
+
+## Introduction
+
+
+## Chi-squared ($\chi^{2}$) contingency table
+
+
+```{r include = F, results="hide"}
+library(dplyr)
+
+ladybirds <- read.csv("data/ladybirds.csv", header = T)
+glimpse(ladybirds)
+
+totals <- group_by(ladybirds, Habitat, morph_colour)
+totals <- summarise(totals, total.number = sum(number))
+totals
+
+totals <- group_by(ladybirds, Habitat, morph_colour) %>%
+          summarise(total.number = sum(number))
+totals
+
+lady.mat <- xtabs(number ~ Habitat + morph_colour, data = ladybirds)
+
+lady.chisq <- chisq.test(lady.mat)
+
+```
+
+Ladybird morphs are not equally distributed in the two habitats (Chi squared = `r lady.chisq$statistic`  , df = `r lady.chisq$parameter`, P = `r lady.chisq$p.value`), with black morphs being more frequent in the industrial habitat.
+
+```{r fig.width = 5, fig.height = 4, echo = F}
+library(ggplot2)
+
+ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c(black = "black", red = "red"))
+```
+
+## Two-sample t-test.
+
+```{r include = F}
+library(palmerpenguins)
+
+subpenguin <- filter(penguins, species %in% c("Adelie", "Gentoo"))
+head(subpenguin)
+
+
+
+bm_test <- t.test(body_mass_g ~ species, data = subpenguin)
+bm_test
+```
+
+Gentoo penguins are significantly heavier than Adelie penguins (t-test, t = `r bm_test$statistic`, df = `r bm_test$parameter`, P = `r bm_test$p.value`).
+
+![](images/Penguins.png)
+
+## Linear regression
+
+```{r include = F, messages = F}
+lm_test <- lm(body_mass_g ~ flipper_length_mm, data = subpenguin)
+```
+
+Body weight (g) varies as a function of Flipper length (mm) in Gentoo and Adelie penguins.  (linear regression, intercept = `r lm_test$coefficients[1]`, slope = `r lm_test$coefficients[2]`, slope = `r bm_test$statistic`, adjusted $R^{2}$ = `r summary(lm_test)$adj.r.squared`).
+
+  
+```{r  fig.width = 4, fig.height = 4, warning=F, echo = F}
+ggplot(subpenguin, aes(x = flipper_length_mm, y = body_mass_g)) + 
+  geom_point() +
+  stat_smooth(method = "lm") +
+  labs(x = "Flipper Length (mm)", y = "Body Mass (g)")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
