@@ -1,9 +1,10 @@
 ---
-title: "Using R as a Research Tool"
+title: "Part 1: Using R as a Research Tool"
 author: Dr Susan Johnston [Susan.Johnston@ed.ac.uk](mailto:Susan.Johnston@ed.ac.uk)
 date: "3rd November 2020"
 output: learnr::tutorial
 runtime: shiny_prerendered
+description: First Tutorial on the NERC E4 DTP, focussing on reading in data and visualisations with ggplot2.
 ---
 
 ```{r setup, include=FALSE}
@@ -12,7 +13,7 @@ library(learnr)
 
 ## Introduction
 
-This tutorial is based on information from [Our Coding Club](https://ourcodingclub.github.io/) and [R4all](http://r4all.org/). The datasets for this tutorial can be downloaded from [https://github.com/susjoh/Intro_to_R](https://github.com/susjoh/Intro_to_R)
+This tutorial is based on information from [Our Coding Club](https://ourcodingclub.github.io/) and [R4all](http://r4all.org/). The datasets for this tutorial can be downloaded from [https://github.com/susjoh/E4StatsTutorials](https://github.com/susjoh/E4StatsTutorials)
 
 ### What is **R**?
 
