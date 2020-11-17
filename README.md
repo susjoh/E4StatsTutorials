@@ -15,8 +15,8 @@ The tutorials can be accessed by clicking "Tutorial" tab in the top right pane. 
 2. Restart R Studio
 3. If they don't work, then you can run the tutorials as follows (unfortunately they may open as a new window):
 
-    learnr::run_tutorial("Tutorial1_E4_Introduction_to_R", "E4StatsTutorials")
-    learnr::run_tutorial("Tutorial2_E4_RMarkdown_and_Stats", "E4StatsTutorials")
+        learnr::run_tutorial("Tutorial1_E4_Introduction_to_R", "E4StatsTutorials")
+        learnr::run_tutorial("Tutorial2_E4_RMarkdown_and_Stats", "E4StatsTutorials")
 
 The presentations, data and images for the Repository are also included in this directory, so it's a good idea to download it also. Go to the green "Code" button (top right) and select "Download ZIP".
 
