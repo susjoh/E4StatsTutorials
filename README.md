@@ -16,8 +16,13 @@ This package requires RStudio (v1.3.1093 or later). Run the following to install
     install_github("susjoh/E4StatsTutorials")
     library(E4StatsTutorials)
     
-    
-The tutorials can be accessed by clicking "Tutorial" tab in the top right pane. If they do not appear, try the following:
+The tutorials can be accessed by clicking "Tutorial" tab in the top right pane.
+
+### Troubleshooting
+
+If there is no Tutorial pane, try adding it by going to `Tools > Global Options... > Pane Layout` and selecting `Tutorial` for the top-left corner.
+
+If the Tutorials still do not appear in the pane, try the following:
 
 1. Refresh the Tutorial Pane 
 2. Restart R Studio
