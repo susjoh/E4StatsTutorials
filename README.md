@@ -20,7 +20,7 @@ The tutorials can be accessed by clicking "Tutorial" tab in the top right pane.
 
 ### Troubleshooting
 
-If there is no Tutorial pane, try adding it by going to `Tools > Global Options... > Pane Layout` and selecting `Tutorial` for the top-left corner.
+If there is no Tutorial pane, try adding it by going to `Tools > Global Options... > Pane Layout` and selecting `Tutorial` for the top-right pane.
 
 If the Tutorials still do not appear in the pane, try the following:
 
