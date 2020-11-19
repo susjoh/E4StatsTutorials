@@ -9,7 +9,7 @@ This repository contains Tutorials for the NERC E4 DTP course on "Using R as a R
 * Generating reports.
 * Publishing research projects.
 
-This Tutorial set can be installed and run within R. It requires RStudio (v1.3.1093 or later). Run the following to install:
+This Tutorial set can be installed and run within [R](https://cloud.r-project.org/). It requires [RStudio](https://rstudio.com/products/rstudio/download/) (v1.3.1093 or later). Run the following to install:
 
     install.packages(c("learnr", "devtools"))
     library(devtools)
@@ -26,13 +26,15 @@ You can download the data by clicking "Code" and "Download ZIP" above and extrac
 
 ### Troubleshooting the Tutorial Install.
 
-If there is no Tutorial pane, try adding it by going to `Tools > Global Options... > Pane Layout` and selecting `Tutorial` for the top-right pane.
+1. Double check that you have a recent version of RStudio.  If you have installed RStudio from the University Software Centre it may be too old.
 
-If the Tutorials still do not appear in the pane, try the following:
+2. If there is no Tutorial pane, try adding it by going to `Tools > Global Options... > Pane Layout` and selecting `Tutorial` for the top-right pane.
 
-1. Refresh the Tutorial Pane 
-2. Restart R Studio
-3. If they don't work, then you can run the tutorials as follows:
+3. If the Tutorials still do not appear in the pane, try the following:
+
+  * Refresh the Tutorial Pane 
+  * Restart R Studio
+  * If they don't work, then you can run the tutorials as follows:
 
         learnr::run_tutorial("Tutorial1_E4_Introduction_to_R", "E4StatsTutorials")
         learnr::run_tutorial("Tutorial2_E4_RMarkdown_and_Stats", "E4StatsTutorials")
