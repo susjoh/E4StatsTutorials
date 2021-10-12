@@ -77,7 +77,7 @@ _**Figure 1: Example structure for a portable R project.**_
 
 ### Using **RStudio**
 
-Open `Intro_to_R.RProj` and open the example **R** Script (`1_Example_Script`). **RStudio** should look like Figure 2. 
+Open `Intro_to_R.RProj` and create a new **R** Script (`File > New File > R Script`). **RStudio** should look like Figure 2. 
 
 ![](images/R_Studio.png){width=100%}
 
