@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 ^inst/tutorials/Tutorial1_E4_Introduction_to_R\.Rmd/Tutorial1_E4_Introduction_to_R-Rmd\.Rmd$
 ^inst/tutorials/Tutorial2_E4_RMarkdown_and_Stats\.Rmd/Tutorial2_E4_RMarkdown_and_Stats-Rmd\.Rmd$
+data/Peru_Soil_Data_Problematic.txt

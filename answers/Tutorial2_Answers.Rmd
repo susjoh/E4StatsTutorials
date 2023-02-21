@@ -1,10 +1,9 @@
 ---
-title: Introduction to Statistics in R
-author: Susan Johnston
-date: 17 November 2020
+title: "Introduction to Statistics in R"
+author: "Susan Johnston"
+date: "17 November 2020"
 output: html_document 
 ---
-
 
 ## Introduction
 
@@ -15,7 +14,7 @@ output: html_document
 ```{r include = F, results="hide"}
 library(dplyr)
 
-ladybirds <- read.csv("data/ladybirds.csv", header = T)
+ladybirds <- read.csv("../data/ladybirds.csv", header = T)
 glimpse(ladybirds)
 
 totals <- group_by(ladybirds, Habitat, morph_colour)
@@ -51,14 +50,21 @@ subpenguin <- filter(penguins, species %in% c("Adelie", "Gentoo"))
 head(subpenguin)
 
 
-
 bm_test <- t.test(body_mass_g ~ species, data = subpenguin)
 bm_test
+
 ```
 
 Gentoo penguins are significantly heavier than Adelie penguins (t-test, t = `r bm_test$statistic`, df = `r bm_test$parameter`, P = `r bm_test$p.value`).
 
-![](images/Penguins.png)
+![](../images/Penguins.png)
+```{r}
+
+ggplot(subpenguin, aes(species, body_mass_g)) +
+  geom_boxplot()
+
+```
+
 
 ## Linear regression
 

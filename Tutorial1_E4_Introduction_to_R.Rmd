@@ -183,7 +183,7 @@ The object `Peru_Soil_Data` is a type of object known as a **data frame**. You c
 
 <details><summary><font color="blue">**Click here for advanced exercises**</font></summary>
 
-Read in `Peru_Soil_Data_Problematic.txt` with `read.table()`. If it doesn’t work, check the help file. If it does work, has all the data read in properly?
+Read in `answers/Peru_Soil_Data_Problematic.txt` with `read.table()`. If it doesn’t work, check the help file. If it does work, has all the data read in properly?
 
 Explore `read_delim()` in the `readr` package – does this offer more flexibility? Print the table – do you like this format? (If so, feel free to use it 😊)
 
