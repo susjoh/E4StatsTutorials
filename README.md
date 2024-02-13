@@ -15,7 +15,7 @@ The aim of these tutorials is to help you understand how to begin and manage a r
 
 If you are a student on the E4 DTP, log on to Learn and navigate to:
 
-    Numeracy Modelling and Data Management (2022-2023)[SEM1] > Course Materials > R courses - Susan Johnston
+    Numeracy Modelling and Data Management (2023 - 2024)[SEM2] > Course Materials > R courses - Susan Johnston
 
 and follow the instructions to load the tutorial. Then, download the data here by scrolling up and clicking the green "Code" button and "Download ZIP" above and extracting the "data" folder. The answers, presentations, data and images for the Repository are also included in the ZIP bundle, so may be generally a good idea to download it.
 
@@ -23,16 +23,22 @@ and follow the instructions to load the tutorial. Then, download the data here b
 
 If you want to run this using the Tutorial function in R, this can be installed and run within [R](https://cloud.r-project.org/). It requires [RStudio](https://rstudio.com/products/rstudio/download/) (v1.3.1093 or later). Run the following to install:
 
-    install.packages(c("learnr", "devtools"))
-    library(devtools)
-    install_github("susjoh/E4StatsTutorials")
-    library(E4StatsTutorials)
-    
-The tutorials can be accessed by clicking "Tutorial" tab in the top right pane. Please see the **Troubleshooting** section below if you cannot get these to run. Alternatively, tutorials can be accessed at the following links:
+```
+install.packages(c("learnr", "devtools"))
+library(devtools)
+install_github("susjoh/E4StatsTutorials")
+library(E4StatsTutorials)
+```   
 
-Part 1: https://sejohnston.shinyapps.io/Tutorial1_E4_Introduction_to_R/
+The tutorials can be accessed by clicking "Tutorial" tab in the top right pane. Alternatively you can run as follows:
 
-Part 2: https://sejohnston.shinyapps.io/Tutorial2_E4_RMarkdown_and_Stats/
+`learnr::run_tutorial("Tutorial1_Introduction_to_R", "E4StatsTutorials")`
+
+Please see the **Troubleshooting** section below if you cannot get these to run. Alternatively, tutorials can be accessed at the following links:
+
+Part 1: https://susjoh.shinyapps.io/Tutorial1_Introduction_to_R/
+
+Part 2: https://sejohnston.shinyapps.io/Tutorial2_E4_RMarkdown_and_Stats/ (TO BE UPDATED)
 
 You can download the data by clicking "Code" and "Download ZIP" above and extracting the "data" folder. The answers, presentations, data and images for the Repository are also included in the ZIP bundle, so may be generally a good idea to download it. 
 
@@ -46,9 +52,5 @@ You can download the data by clicking "Code" and "Download ZIP" above and extrac
 
   * Refresh the Tutorial Pane 
   * Restart R Studio
-  * If they don't work, then you can run the tutorials as follows:
-
-        learnr::run_tutorial("Tutorial1_E4_Introduction_to_R", "E4StatsTutorials")
-        learnr::run_tutorial("Tutorial2_E4_RMarkdown_and_Stats", "E4StatsTutorials")
 
 

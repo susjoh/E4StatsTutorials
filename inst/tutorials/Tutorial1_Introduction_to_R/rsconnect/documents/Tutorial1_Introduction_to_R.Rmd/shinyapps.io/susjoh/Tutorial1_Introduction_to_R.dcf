@@ -1,0 +1,12 @@
+name: Tutorial1_Introduction_to_R
+title: Tutorial1_Introduction_to_R
+username: susjoh
+account: susjoh
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11211935
+bundleId: 8250509
+url: https://susjoh.shinyapps.io/Tutorial1_Introduction_to_R/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
