@@ -304,8 +304,6 @@ filter(Peru_Soil_Data, Calcium > 50)
 
 #### Advanced Exercises
 
-
-
 6.  Explore the `group_by()` and `summarise()` function in `dplyr` using `?` or a search engine. Use these functions to create a data frame with the mean Phosphorus and Calcium measures for each habitat.
 
 
