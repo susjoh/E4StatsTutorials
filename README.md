@@ -15,9 +15,9 @@ The aim of these tutorials is to help you understand how to begin and manage a r
 
 If you are a student on the E4 DTP, log on to Learn and navigate to:
 
-    Numeracy Modelling and Data Management (2023 - 2024)[SEM2] > Course Materials > R courses - Susan Johnston
+`Numeracy Modelling and Data Management (2023 - 2024)[SEM2] > Course Materials > R courses - Susan Johnston`
 
-and follow the instructions to load the tutorial. Then, download the data here by scrolling up and clicking the green "Code" button and "Download ZIP" above and extracting the "data" folder. The answers, presentations, data and images for the Repository are also included in the ZIP bundle, so may be generally a good idea to download it.
+and follow the instructions to load the tutorial.
 
 ---
 
