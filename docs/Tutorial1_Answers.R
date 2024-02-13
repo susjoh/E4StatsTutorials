@@ -28,8 +28,8 @@ sort(y, decreasing = T)
 
 # Install packages once only!
 
-# install.packages(tidyverse)
-# install.packages(palmerpenguins)
+install.packages("tidyverse")
+install.packages("palmerpenguins")
 
 # Load the libraries
 

@@ -154,7 +154,7 @@ should bring up a help page for the function `mean()` in the lower right corner.
 In these practicals, we are going to use a suite of packages known as the `tidyverse`. These can be installed by running the following:
 
 ```{r eval = F}         
-install.packages(tidyverse)
+install.packages("tidyverse")
 ```
 
 This installs the library from CRAN. It may ask you to select a mirror - select the one that which is geographically closest, or the RStudio Global mirror.
