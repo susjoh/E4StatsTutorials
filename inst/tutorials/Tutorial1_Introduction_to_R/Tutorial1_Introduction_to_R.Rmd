@@ -300,9 +300,13 @@ filter(Peru_Soil_Data, Calcium > 50)
 
 4.  Create a new column called `Sum_Ca_Mg` that is the sum of the calcium and magnesium columns.
 
+5. Save your new dataset to a file in a directory `results` using `write_delim(..., sep = "\t")`. What do you think `\t` means? Try with and without this argument.
+
 #### Advanced Exercises
 
-5.  Explore the `group_by()` and `summarise()` function in `dplyr` using `?` or a search engine. Use these functions to create a data frame with the mean Phosphorus and Calcium measures for each habitat.
+
+
+6.  Explore the `group_by()` and `summarise()` function in `dplyr` using `?` or a search engine. Use these functions to create a data frame with the mean Phosphorus and Calcium measures for each habitat.
 
 
 </div>
