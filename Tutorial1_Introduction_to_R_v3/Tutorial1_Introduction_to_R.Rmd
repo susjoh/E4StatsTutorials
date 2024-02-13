@@ -371,7 +371,7 @@ install.packages("palmerpenguins")
 Load the library and look at the `penguins` data frame.
 
 ```{r message = F}
-
+library(tidyverse)
 library(palmerpenguins)
 data(penguins)
 head(penguins)

@@ -571,7 +571,8 @@ for more info on this dataset.</p>
 <pre class="r"><code>install.packages(&quot;palmerpenguins&quot;)</code></pre>
 <p>Load the library and look at the <code>penguins</code> data
 frame.</p>
-<pre class="r"><code>library(palmerpenguins)
+<pre class="r"><code>library(tidyverse)
+library(palmerpenguins)
 data(penguins)
 head(penguins)</code></pre>
 <div data-pagedtable="false">
@@ -731,7 +732,7 @@ graph:</p>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).</code></pre>
 <pre><code>## Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
-<p><img src="Tutorial1_Introduction_to_R_v3_files/figure-html/unnamed-chunk-20-1.png" width="624" /></p>
+<p><img src="Tutorial1_Introduction_to_R_files/figure-html/unnamed-chunk-20-1.png" width="624" /></p>
 </div>
 <div id="section-troubleshooting" class="section level3">
 <h3>Troubleshooting:</h3>
@@ -774,19 +775,19 @@ to go from red to purple by adding the line
 <li><p>Find a <code>geom_...()</code> to make a
 <strong>histogram</strong> of flipper_length_mm.</p></li>
 </ol>
-<p><img src="Tutorial1_Introduction_to_R_v3_files/figure-html/unnamed-chunk-23-1.png" width="384" /></p>
+<p><img src="Tutorial1_Introduction_to_R_files/figure-html/unnamed-chunk-23-1.png" width="384" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Find a <code>geom_...()</code> to make a <strong>box-plot</strong>
 of species (x-axis) and flipper_length_mm (y-axis).</li>
 </ol>
-<p><img src="Tutorial1_Introduction_to_R_v3_files/figure-html/unnamed-chunk-24-1.png" width="384" /></p>
+<p><img src="Tutorial1_Introduction_to_R_files/figure-html/unnamed-chunk-24-1.png" width="384" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Colour the bars in the previous plot by <code>sex</code> (Hint: swap
 <code>col</code> for another command). If you want to remove NAs, create
 a filtered dataset using
 <code>penguins_v2 &lt;- filter(penguins, !is.na(sex))</code>.</li>
 </ol>
-<p><img src="Tutorial1_Introduction_to_R_v3_files/figure-html/unnamed-chunk-25-1.png" width="384" /></p>
+<p><img src="Tutorial1_Introduction_to_R_files/figure-html/unnamed-chunk-25-1.png" width="384" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Use the tab key to explore options for the layer
 <code>theme_...()</code> and use it to make your graphs look nicer. (My
@@ -801,7 +802,7 @@ fixed on each facet (i.e. the scales are different and not the maxima of
 the entire plot area)? Hint: look at the specifications in
 <code>facet_wrap()</code>.</li>
 </ol>
-<p><img src="Tutorial1_Introduction_to_R_v3_files/figure-html/unnamed-chunk-26-1.png" width="624" /></p>
+<p><img src="Tutorial1_Introduction_to_R_files/figure-html/unnamed-chunk-26-1.png" width="624" /></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Create a scatterplot with any continuous variables, coloured by
 species.</li>
@@ -865,10 +866,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex901", global_setup = str
         eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
         tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
         highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
-        strip.white = TRUE, cache = 0, cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        strip.white = TRUE, cache = 0, cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -903,10 +904,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex902", global_setup = str
         eval = FALSE, echo = TRUE, results = "markup", tidy = FALSE, 
         tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
         highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
-        strip.white = TRUE, cache = 0, cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        strip.white = TRUE, cache = 0, cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -941,10 +942,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex4", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -978,10 +979,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex5", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1015,10 +1016,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex6", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1053,10 +1054,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex14", global_setup = stru
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1092,10 +1093,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex15", global_setup = stru
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1131,10 +1132,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex10", global_setup = stru
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1170,10 +1171,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex7", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1209,10 +1210,10 @@ learnr:::store_exercise_cache(structure(list(label = "Ex12", global_setup = stru
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Tutorial1_Introduction_to_R_v3_cache/html/", 
+        cache.path = "Tutorial1_Introduction_to_R_cache/html/", 
         cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
         autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_v3_files/figure-html/", 
+        fig.show = "asis", fig.align = "default", fig.path = "Tutorial1_Introduction_to_R_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
