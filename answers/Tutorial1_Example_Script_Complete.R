@@ -34,14 +34,13 @@ sort(y, decreasing = T)
 # 1. Set up the working environment
 #----------------------------------------
 
-library(dplyr)
-library(ggplot2)
+library(tidyverse)
 
 #----------------------------------------
 # 2. Load data
 #----------------------------------------
 
-Peru_Soil_Data <- read.table("data/Peru_Soil_Data.txt", header = T)  # Exercise 3
+Peru_Soil_Data <- read_delim("data/Peru_Soil_Data.csv")  # Exercise 3
 head(Peru_Soil_Data)
 str(Peru_Soil_Data)
 
@@ -60,13 +59,13 @@ summary(Peru_Soil_Data)
 # Sorting Data
 
 # sort by Soil pH value:
-arrange(Peru_Soil_Data, Soil_pH) 
+arrange(Peru_Soil_Data, Soil_pH)
 
 # sort by decreasing Soil pH value:
-arrange(Peru_Soil_Data, -Soil_pH) 
+arrange(Peru_Soil_Data, -Soil_pH)
 
 # sort by habitat and then soil pH within habitat:
-arrange(Peru_Soil_Data, Habitat, Soil_pH) 
+arrange(Peru_Soil_Data, Habitat, Soil_pH)
 
 # Subsetting columns
 
@@ -127,15 +126,15 @@ boxplot(Magnesium ~ River_Basin, data = Peru_Soil_Data)
 
 ggplot(Peru_Soil_Data, aes(x = Calcium, y = Magnesium))
 
-ggplot(Peru_Soil_Data, aes(x = Calcium, y = Magnesium)) + 
+ggplot(Peru_Soil_Data, aes(x = Calcium, y = Magnesium)) +
   geom_point()
 
-ggplot(Peru_Soil_Data, aes(x = Calcium, y = Magnesium)) + 
-  geom_point() + 
+ggplot(Peru_Soil_Data, aes(x = Calcium, y = Magnesium)) +
+  geom_point() +
   stat_smooth(method = "lm")
 
-ggplot(Peru_Soil_Data, aes(x = Calcium, y = Magnesium, col = Habitat)) + 
-  geom_point() + 
+ggplot(Peru_Soil_Data, aes(x = Calcium, y = Magnesium, col = Habitat)) +
+  geom_point() +
   stat_smooth(method = "lm")
 
 ggplot(Peru_Soil_Data, aes(x = Calcium, y = Magnesium, col = Habitat)) +
