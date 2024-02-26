@@ -4,7 +4,7 @@ author: Dr Susan Johnston [Susan.Johnston@ed.ac.uk](mailto:Susan.Johnston@ed.ac.
 date: "27th Feb 2024"
 output: learnr::tutorial
 runtime: shiny_prerendered
-description: Second Tutorial on the NERC E4 DTP, focussing on report writing and reproducibility.
+description: Second Tutorial on the NERC E4 DTP - report writing and reproducibility.
 ---
 
 ```{r setup, include=FALSE}
@@ -202,14 +202,9 @@ Can you edit this chunk to hide the code, hide the warning message, and adjust t
 
 </div>
 
-## A very brief overview of Git
-
-
-
-
 ## Version control with `git`.
 
-###What is `git`?
+### What is `git`?
 
 [](images/git_0_screenshot.png)
 
@@ -254,156 +249,108 @@ Look at the history again, and you will see the new edit. As you add more commit
 
 **Reverting to the last commit**: If you have made edits but want to revert back to the last save, you can click on the file in `Git` and click `More > Revert`. Use carefully as you'll lose all your changes - it's better to commit the bad stuff with a clear commit message and retrieve a previous version.
 
-<font color="blue">**Feeling advanced?**</font>: If you would like to try connecting your RStudio with GitHub, you can try another tutorial: https://github.com/susjoh/MScIntroGitGithub.
+<font color="blue">**Feeling advanced?**</font>: If you would like to try connecting your RStudio with a GitHub account, you can try another tutorial: https://github.com/susjoh/MScIntroGitGithub.
 
 
-## Final Exercise: Using R as a Research Pipeline
+## Exercise: Using R as a Research Pipeline
 
-Create a new script, save it to your main directory, and start exploring your research question. Refer to last weeks notes and be creative! Your goals are (indented are optional!):
+For the rest of the session, you are going to put your new research skills to the test. Using the Palmer penguin dataset, think of your new research question.
 
-* Load the libraries `ggplot2` for plotting, `dplyr` for data manipulation, and `readr` for writing data to files.
+Create a new script, save it to your main directory, and start exploring. Refer to last week's notes and be creative! If you are newer to R, use the hints to get started. If you have some experience with R, try to do this without the hints!
 
-<details><summary><font color="blue">Click for Hint</font></summary>
-```
-library(dplyr)
-library(ggplot2)
-library(readr)
-```
-</details>
+Your objectives are (indented are optional):
 
-* Load the `palmerpenguins` library and type `data("penguins")`.
+<div class="bordered">
+1. Create a document outline for your report with headings for each section.
+
+    <details><summary><font color="blue">Click for Hint</font></summary>
+    Use #, ##, ### at the beginning of lines.
+    </details>
+
+
+2. Load the libraries `ggplot2` for plotting, `dplyr` for data manipulation, and `readr` for writing data to files.
+
+    <details><summary><font color="blue">Click for Hint</font></summary>
+    ```
+    library(dplyr)
+    library(ggplot2)
+    library(readr)
+    ```
+    </details>
+
+3. Load the `palmerpenguins` library and type `data("penguins")`.
+  * Add an image of the penguins in your document (Use `![]()`)
   * Filter the data to only look at a particular species or sex.
   * Save this edited dataset in `results/`
 
-<details><summary><font color="blue">Click for Hint</font></summary>
-```
-library(palmerpenguins)
-data("penguins")
+    <details><summary><font color="blue">Click for Hint</font></summary>
+    
+    ```
+    library(palmerpenguins)
+    data("penguins")
+    
+    # Subset the data
+    penguins_edit <- filter(penguins, species == "Adelie")
+    
+    # Make a results folder if you don't have one already...
+    dir.create("results")
+    write_tsv(penguins_edit, "results/1_penguins_no_chinstrap.txt")
+    ```
+    </details>
 
-# Subset the data
-penguins_edit <- filter(penguins, species == "Adelie")
 
-# Make a results folder if you don't have one already...
-dir.create("results")
-write_tsv(penguins_edit, "results/1_penguins_no_chinstrap.txt")
-```
-</details>
-
-
-* Choose variables to create a scatterplot with a linear regression with `ggplot()`.
+4. Choose variables to create a scatterplot with a linear regression with `ggplot()`.
   * Run a statistical test with `lm()`
   * Report the slope, intercept, P and adjusted R^2 values inline.
   * Save plot(s) to `figs/`
 
-<details><summary><font color="blue">Click for Hint</font></summary>
-```
-# Make the plot
-ggplot(penguins_edit, aes(bill_length_mm, bill_depth_mm)) +
-  geom_point() +
-  stat_smooth(method = "lm")
-  
-# Run a linear regression
-fit1 <- lm(bill_depth_mm ~ bill_length_mm, data = penguins_edit)
-fit1 <- summary(fit1)
-fit1
+    <details><summary><font color="blue">Click for Hint</font></summary>
+    ```
+    # Make the plot
+    ggplot(penguins_edit, aes(bill_length_mm, bill_depth_mm)) +
+      geom_point() +
+      stat_smooth(method = "lm")
+      
+    # Run a linear regression
+    fit1 <- lm(bill_depth_mm ~ bill_length_mm, data = penguins_edit)
+    fit1 <- summary(fit1)
+    fit1
+    
+    # Intercept = 11.41, Slope = 0.179, P = 6.67e-07, Adj R^2 = 0.148
+    
+    # These results can be called inline using numerous methods e.g. tidy() in library(broom). This is the old school way, which can be called inline with e.g.r fit1$adj.r.squared:
+    
+    fit1$coefficients
+    fit1$coefficients[1,1]
+    fit1$coefficients[2,1]
+    fit1$coefficients[2,4]
+    fit1$adj.r.squared   
+    ```
+    </details>
 
-# Intercept = 11.41, Slope = 0.179, P = 6.67e-07, Adj R^2 = 0.148
+5. Create a boxplot between a categorical and continuous variable, and run and report the results of a t-test using `t.test()`
 
-# These results can be called inline using numerous methods e.g. tidy() in library(broom). This is the old school way, which can be called inline with e.g.`r fit1$adj.r.squared`:
-
-fit1$coefficients
-fit1$coefficients[1,1]
-fit1$coefficients[2,1]
-fit1$coefficients[2,4]
-fit1$adj.r.squared   
-
-```
-</details>
-
-* Create a boxplot between a categorical and continuous variable, and run and report the results of a t-test using `t.test()`
-
-<details><summary><font color="blue">Click for Hint</font></summary>
-```
-# Filter to just males and females
-penguins_edit <- filter(penguins_edit, !is.na(sex))
-
-# Make a plot
-ggplot(penguins_edit, aes(sex, bill_depth_mm)) +
-  geom_boxplot()
-
-# Run a t.test  
-fit2 <- t.test(bill_depth_mm ~ sex, data = penguins_edit)
-fit2
-
-fit2$statistic
-fit2$parameter
-fit2$p.value
-
-```
-</details>
-
-
-* Knit to create an HTML document that gives a basic report of your data, analysis and results. Try to minimise unnecessary code and messages being pasted into your document.
-
-If you are newer to R, use the hints to get started.
-
-If you have some experience with R, try to do this without the hints!
+    <details><summary><font color="blue">Click for Hint</font></summary>
+    ```
+    # Filter to just males and females
+    penguins_edit <- filter(penguins_edit, !is.na(sex))
+    
+    # Make a plot
+    ggplot(penguins_edit, aes(sex, bill_depth_mm)) +
+      geom_boxplot()
+    
+    # Run a t.test  
+    fit2 <- t.test(bill_depth_mm ~ sex, data = penguins_edit)
+    fit2
+    
+    fit2$statistic
+    fit2$parameter
+    fit2$p.value
+    
+    ```
+    </details>
 
 
+6. Knit to create an HTML document that gives a basic report of your data, analysis and results. Try to minimise unnecessary code and messages being pasted into your document.
 
-
-
-
-<details><summary>**Subset the data:** [click]</summary>
-```
-penguins <- filter(penguins, Species != "Chinstrap")
-
-```
-</details>
-
-<details><summary>**Run a linear regression:** [click]</summary>
-```
-model1 <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
-summary(model1)
-
-```
-</details>
-
-<details><summary>**Create a nice plot in ggplot2:** [click]</summary>
-```
-ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
-  geom_point() +
-  stat_smooth(method = "lm")    
-
-```
-</details>
-
-
-<details><summary>**Save the plot in your /figs folder:** [click]</summary>
-```
-ggsave("figs/1_flipper_bodymass_regression.png") 
-
-#NB. This saves the last plot that was run!
-
-```
-</details>
-
-
-<details><summary>**Subset the data:** [click]</summary>
-```
-
-penguins_female <- subset(penguins, sex == "female")
-
-```
-</details>
-
-<details><summary>**Save the edited dataset:** [click]</summary>
-```
-
-write_tsv(penguins_female, "results/1_penguin_female_only.txt")
-
-```
-</details>
-
-
-
+</div>

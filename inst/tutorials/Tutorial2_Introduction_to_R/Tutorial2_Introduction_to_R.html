@@ -363,12 +363,10 @@ geom_point()
 ```</code></pre>
 </div>
 </div>
-<div id="section-a-very-brief-overview-of-git" class="section level2">
-<h2>A very brief overview of Git</h2>
-</div>
 <div id="section-version-control-with-git." class="section level2">
 <h2>Version control with <code>git</code>.</h2>
-<p>###What is <code>git</code>?</p>
+<div id="section-what-is-git" class="section level3">
+<h3>What is <code>git</code>?</h3>
 <p><a href="images/git_0_screenshot.png"></a></p>
 <p><code>Git</code> is a commonly used version control programme. You
 may have heard of <a href="https://github.com">GitHub</a> - this website
@@ -395,6 +393,7 @@ re-opening RStudio.</li>
 and directories that git should ignore - for example, your .Rhistory,
 .RProj files and so on. For example, if you have very large data or
 results files, you may not want to commit them to save disk space.</p>
+</div>
 <div id="section-the-first-commit" class="section level3">
 <h3>The first commit</h3>
 <p>Click on the boxes under the column <code>Staged</code>. These should
@@ -436,97 +435,131 @@ but want to revert back to the last save, you can click on the file in
 as you’ll lose all your changes - it’s better to commit the bad stuff
 with a clear commit message and retrieve a previous version.</p>
 <p><font color="blue"><strong>Feeling advanced?</strong></font>: If you
-would like to try connecting your RStudio with GitHub, you can try
-another tutorial: <a href="https://github.com/susjoh/MScIntroGitGithub"
+would like to try connecting your RStudio with a GitHub account, you can
+try another tutorial: <a
+href="https://github.com/susjoh/MScIntroGitGithub"
 class="uri">https://github.com/susjoh/MScIntroGitGithub</a>.</p>
 </div>
 </div>
-<div id="section-final-exercise-using-r-as-a-research-pipeline"
+<div id="section-exercise-using-r-as-a-research-pipeline"
 class="section level2">
-<h2>Final Exercise: Using R as a Research Pipeline</h2>
+<h2>Exercise: Using R as a Research Pipeline</h2>
+<p>For the rest of the session, you are going to put your new research
+skills to the test. Using the Palmer penguin dataset, think of your new
+research question.</p>
 <p>Create a new script, save it to your main directory, and start
-exploring your research question. Be creative! Your goals are (indented
-are optional!):</p>
-<ul>
-<li>Load the libraries <code>ggplot2</code> for plotting and
-<code>dplyr</code> for data manipulation.
+exploring. Refer to last week’s notes and be creative! If you are newer
+to R, use the hints to get started. If you have some experience with R,
+try to do this without the hints!</p>
+<p>Your objectives are (indented are optional):</p>
+<div class="bordered">
+<ol style="list-style-type: decimal">
+<li><p>Create a document outline for your report with headings for each
+section.</p>
 <details>
 <summary>
-<font color="blue">Click for Hint</font>
-</summary></li>
-</ul>
+<p><font color="blue">Click for Hint</font></p>
+</summary>
+<p>Use #, ##, ### at the beginning of lines.</p>
+</details></li>
+<li><p>Load the libraries <code>ggplot2</code> for plotting,
+<code>dplyr</code> for data manipulation, and <code>readr</code> for
+writing data to files.</p>
+<details>
+<summary>
+<p><font color="blue">Click for Hint</font></p>
+</summary>
 <pre><code>library(dplyr)
-library(ggplot2)</code></pre>
-</details>
+library(ggplot2)
+library(readr)</code></pre>
+</details></li>
+<li><p>Load the <code>palmerpenguins</code> library and type
+<code>data("penguins")</code>.</p></li>
+</ol>
 <ul>
-<li>Load the <code>palmerpenguins</code> library and type
-<code>data(palmerpenguins)</code>.
-<ul>
-<li>Filter the data to only look at a particular species or sex.</li>
-<li>Save this edited dataset in <code>results/</code></li>
-</ul></li>
-<li>Choose variables to create a scatterplot with a linear regression
-with <code>ggplot()</code>.
-<ul>
-<li>Run a statistical test with <code>lm()</code></li>
-<li>Report the slope, intercept, P and adjusted R^2 values inline.</li>
-<li>Save plots to <code>figs/</code></li>
-</ul></li>
-<li>Knit to create an HTML document that gives a basic report of your
-data, analysis and results.</li>
-</ul>
-<p>If you are newer to R, use the hints below to get started.</p>
-<p>If you have some experience with R, try to do this without the
-hints</p>
+<li><p>Add an image of the penguins in your document (Use
+<code>![]()</code>)</p></li>
+<li><p>Filter the data to only look at a particular species or
+sex.</p></li>
+<li><p>Save this edited dataset in <code>results/</code></p>
 <details>
 <summary>
-<strong>Subset the data:</strong> [click]
+<p><font color="blue">Click for Hint</font></p>
 </summary>
-<pre><code>penguins &lt;- filter(penguins, Species != &quot;Chinstrap&quot;)
-</code></pre>
-</details>
-<details>
-<summary>
-<strong>Run a linear regression:</strong> [click]
-</summary>
-<pre><code>model1 &lt;- lm(body_mass_g ~ flipper_length_mm, data = penguins)
-summary(model1)
-</code></pre>
-</details>
-<details>
-<summary>
-<strong>Create a nice plot in ggplot2:</strong> [click]
-</summary>
-<pre><code>ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
-  geom_point() +
-  stat_smooth(method = &quot;lm&quot;)    
-</code></pre>
-</details>
-<details>
-<summary>
-<strong>Save the plot in your /figs folder:</strong> [click]
-</summary>
-<pre><code>ggsave(&quot;figs/1_flipper_bodymass_regression.png&quot;) 
+<pre><code>library(palmerpenguins)
+data(&quot;penguins&quot;)
 
-#NB. This saves the last plot that was run!
-</code></pre>
-</details>
+# Subset the data
+penguins_edit &lt;- filter(penguins, species == &quot;Adelie&quot;)
+
+# Make a results folder if you don&#39;t have one already...
+dir.create(&quot;results&quot;)
+write_tsv(penguins_edit, &quot;results/1_penguins_no_chinstrap.txt&quot;)</code></pre>
+</details></li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Choose variables to create a scatterplot with a linear regression
+with <code>ggplot()</code>.</li>
+</ol>
+<ul>
+<li><p>Run a statistical test with <code>lm()</code></p></li>
+<li><p>Report the slope, intercept, P and adjusted R^2 values
+inline.</p></li>
+<li><p>Save plot(s) to <code>figs/</code></p>
 <details>
 <summary>
-<strong>Subset the data:</strong> [click]
+<p><font color="blue">Click for Hint</font></p>
 </summary>
-<pre><code>
-penguins_female &lt;- subset(penguins, sex == &quot;female&quot;)
-</code></pre>
-</details>
+<pre><code># Make the plot
+ggplot(penguins_edit, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point() +
+  stat_smooth(method = &quot;lm&quot;)
+
+# Run a linear regression
+fit1 &lt;- lm(bill_depth_mm ~ bill_length_mm, data = penguins_edit)
+fit1 &lt;- summary(fit1)
+fit1
+
+# Intercept = 11.41, Slope = 0.179, P = 6.67e-07, Adj R^2 = 0.148
+
+# These results can be called inline using numerous methods e.g. tidy() in library(broom). This is the old school way, which can be called inline with e.g.r fit1$adj.r.squared:
+
+fit1$coefficients
+fit1$coefficients[1,1]
+fit1$coefficients[2,1]
+fit1$coefficients[2,4]
+fit1$adj.r.squared   </code></pre>
+</details></li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Create a boxplot between a categorical and continuous variable,
+and run and report the results of a t-test using
+<code>t.test()</code></p>
 <details>
 <summary>
-<strong>Save the edited dataset:</strong> [click]
+<p><font color="blue">Click for Hint</font></p>
 </summary>
-<pre><code>
-write_tsv(penguins_female, &quot;results/1_penguin_female_only.txt&quot;)
+<pre><code># Filter to just males and females
+penguins_edit &lt;- filter(penguins_edit, !is.na(sex))
+
+# Make a plot
+ggplot(penguins_edit, aes(sex, bill_depth_mm)) +
+  geom_boxplot()
+
+# Run a t.test  
+fit2 &lt;- t.test(bill_depth_mm ~ sex, data = penguins_edit)
+fit2
+
+fit2$statistic
+fit2$parameter
+fit2$p.value
 </code></pre>
-</details>
+</details></li>
+<li><p>Knit to create an HTML document that gives a basic report of your
+data, analysis and results. Try to minimise unnecessary code and
+messages being pasted into your document.</p></li>
+</ol>
+</div>
 <p>
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
