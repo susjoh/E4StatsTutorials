@@ -1,0 +1,93 @@
+---
+title: "Penguin_Analysis"
+author: "Susan Johnston"
+date: "2/27/2024"
+output: html_document
+---
+```{r include=F}
+library(ggplot2) 
+library(dplyr)
+library(readr)
+library(palmerpenguins)
+```
+
+Here is a comment to show that I am using git!
+
+```{r echo = F, results = "hide", warning = F, fig.height = 3, fig.width = 3}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point()
+```
+
+Now to do some analysis...
+
+## Introduction
+
+Three species of penguins are found on three islands in the Palmer archipelago in Antarctica (Figure 1). This study will investigate variation in bill morphology in one of these species, the Adelie penguin.
+
+
+![Figure 1. Three species of Palmer penguins.](images/Penguins.png)
+
+## Methods
+
+Penguin bill length and bill depth were measured in mm using calipers. The correlation between the measures was investigated using a linear regression. We also investigated sex differences in bill depth using a t-test.
+
+```{r include=F}
+
+# This chunk will edit the data, but will not output any text or data.
+# Everything is run in the background.
+
+penguins_edit <- filter(penguins, species == "Adelie")
+
+# Make a results folder if you don't have one already...
+dir.create("results")
+write_tsv(penguins_edit, "results/1_penguins_no_chinstrap.txt")
+
+# Run a linear regression
+fit1 <- lm(bill_depth_mm ~ bill_length_mm, data = penguins_edit)
+fit1 <- summary(fit1)
+
+# Create a sex subset to remove NAs
+penguins_sex <- filter(penguins_edit, !is.na(sex))
+
+# Run a t.test  
+fit2 <- t.test(bill_depth_mm ~ sex, data = penguins_sex)
+
+```
+
+## Results
+
+Bill depth increased with bill length:
+```{r echo = F}
+fit1
+
+```
+OR...
+
+Bill depth increased with bill length (intercept = `r fit1$coefficients[1,1]`, slope = `r fit1$coefficients[2,1]`, P = `r fit1$coefficients[2,4]`, Adjusted R^2^ = `r fit1$adj.r.squared`, Figure 2)
+
+
+```{r echo = F, warning = F, message=F, fig.width = 4, fig.height = 4}
+ggplot(penguins_edit, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point() +
+  stat_smooth(method = "lm") +
+  labs(x = "Bill Length (mm)", y = "Bill Depth (mm)")
+```
+
+Figure 2: Linear regression of bill depth and bill length
+
+
+We also saw clear sex differences in bill depth, where males had deeper bills than females (t = `r fit2$statistic`, df = `r fit2$parameter`, P = `r fit2$p.value`, Figure 3)
+
+
+```{r echo = F, warning = F, message=F, fig.width = 4, fig.height = 4}
+
+ggplot(penguins_sex, aes(sex, bill_depth_mm)) +
+  geom_boxplot() +
+  labs(y = "Bill Depth (mm)")
+```
+
+Figure 3: Boxplot of bill depth by sex.
+
+
+## Dicussion
+
+We showed that bill length and depth are correlated, and that there is significant sexual dimorphism in this trait in Adelie penguins.
