@@ -141,9 +141,12 @@ href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a></p
 Make sure that the option <code>Create a git repository</code> is
 selected:</li>
 </ol>
-<p><img src="images/create_project.png" style="width:60.0%" /> 2. Make
-sure you have the Palmer penguin dataset installed and loaded by typing
-the following in the Console (bottom left pane):</p>
+<p><img src="images/create_project.png" style="width:60.0%" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Make sure you have the Palmer penguin dataset installed and loaded
+by typing the following in the Console (make sure it is selected in the
+bottom left pane):</li>
+</ol>
 <pre class="r"><code>install.packages(&quot;palmerpenguins&quot;)
 library(palmerpenguins)
 data(penguins)
@@ -221,8 +224,10 @@ document, using
 <code>File &gt; New File &gt; R Markdown... &gt; Presentation</code>
 etc.</p>
 </div>
-<div id="section-embedding-code-in-r-markdown." class="section level3">
-<h3>Embedding code in R Markdown.</h3>
+</div>
+<div id="section-getting-started-with-r-markdown."
+class="section level2">
+<h2>Getting Started with R Markdown.</h2>
 <p>Code can be embedded into the document in two ways.</p>
 <p>First, it can be embedded as a <strong>“chunk”</strong>:</p>
 <pre><code>```{r}
@@ -249,7 +254,6 @@ containing the file is the working directory.</p></li>
 <li><p>All chunks in the document must be able to run without any
 errors, or the document will not render.</p></li>
 </ol>
-</div>
 <div id="section-structuring-an-r-markdown-document."
 class="section level3">
 <h3>Structuring an R Markdown document.</h3>
@@ -265,8 +269,9 @@ library(palmerpenguins)
 ```</code></pre>
 <p>You may notice that this results in messages that is not relevant to
 the document. You can control what is reported using additional
-arguments within the chunk description. For example, the following will
-allow the command to run invisibly:</p>
+arguments within the chunk description. For example, adding
+<code>include=F</code> to the first line after the <code>r</code> will
+allow the commands to run invisibly:</p>
 <pre><code>```{r include = F}
 library(ggplot2)
 library(dplyr)
@@ -278,8 +283,8 @@ a new chunk and <code>knit</code>ting:</p>
 str(penguins)
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point()
 ```</code></pre>
-<p>and then replacing it with the following, and <code>knit</code>ting
-again:</p>
+<p>and then adding <code>echo = F, results = "hide"</code> to the first
+line, and <code>knit</code>ting again:</p>
 <pre><code>```{r echo = F, results = &quot;hide&quot;}
 str(penguins)
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point()
@@ -373,7 +378,9 @@ may have heard of <a href="https://github.com">GitHub</a> - this website
 provides access to versions of code, but also allows collaborative
 working, through bug reports, requests, task management, etc.</p>
 <p>When you look at the upper right hand pane of RStudio, you may have a
-tab that says <strong>Git</strong>. If not:</p>
+tab that says <strong>Git</strong>.</p>
+<p><img src="images/where_is_git.png" style="width:70.0%" /></p>
+<p>If you don’t have this:</p>
 <ol start="0" style="list-style-type: decimal">
 <li>Check you installed git by typing <code>git</code> into the
 <strong>Terminal</strong> tab in the lower left hand pane. If nothing
@@ -387,12 +394,22 @@ You will probably have to restart RStudio.</li>
 re-opening RStudio.</li>
 <li>Ask me and I’ll try to help!</li>
 </ol>
-<p>The pane should look something like this:</p>
-<p><img src="images/git_1_screenshot.png" /></p>
 <p>FYI: the <code>.gitignore</code> file is a text file specifying files
 and directories that git should ignore - for example, your .Rhistory,
 .RProj files and so on. For example, if you have very large data or
 results files, you may not want to commit them to save disk space.</p>
+</div>
+<div id="section-configuring-git" class="section level3">
+<h3>Configuring <code>git</code></h3>
+<p>The very first time you run git, you need to configure it. Click into
+the <code>Terminal</code> tab in the bottom left and enter these two
+lines <strong>NB. Edit these to have your details and not
+mine!</strong>:</p>
+<pre><code>git config --global user.email &quot;Susan.Johnston@ed.ac.uk&quot;
+git config --global user.name &quot;susjoh&quot;</code></pre>
+<p>The user name should work with anything; if you have a GitHub
+account, you can use your user name for that (e.g. mine is
+<code>susjoh</code>).</p>
 </div>
 <div id="section-the-first-commit" class="section level3">
 <h3>The first commit</h3>
@@ -400,28 +417,31 @@ results files, you may not want to commit them to save disk space.</p>
 turn from question marks to a green <code>A</code>. This means that you
 have added these files to the repository. Click <code>Commit</code>. A
 new dialogue should appear:</p>
-<p><img src="images/git_2_screenshot.png" style="width:80.0%" /></p>
+<p><img src="images/newgit2.png" style="width:70.0%" /></p>
 <p>Type in a commit message (such as “First commit”) and click “Commit”.
-The dialogue should clear and the <code>Git</code> tab should be empty.
-You have now saved a snapshot in time. You can see your History by
-clicking the <code>History</code> button on the Git tab (it has a little
-clock).</p>
+You should see something like this:</p>
+<p><img src="images/newgit4.png" style="width:70.0%" /></p>
+<p>The dialogue should clear and the <code>Git</code> tab should be
+empty. You have now saved a snapshot in time. You can see your History
+by clicking the <code>History</code> button on the Git tab (it has a
+little clock).</p>
 </div>
 <div id="section-more-commits" class="section level3">
 <h3>More commits</h3>
 <p>Let’s make another commit. Edit your knitr/analysis file with
 something unimportant (maybe a comment) and save the file.</p>
-<p><img src="images/git_3_screenshot.png" style="width:80.0%" /></p>
+<p><img src="images/newgit5.png" style="width:80.0%" /></p>
 <p>Now you will see your script with a blue <code>M</code> next to it.
 This means the file has been modified. (If you don’t see it, press the
 little reload arrow at the far right of the pane). Stage it and commit
 it with a <em>meaningful</em> commit message. You will see the file
 changes in the lower part of the box:</p>
-<p><img src="images/git_4_screenshot.png" style="width:80.0%" /></p>
+<p><img src="images/newgit6.png" style="width:80.0%" /></p>
 <p>Look at the history again, and you will see the new edit. As you add
 more commits, you can click on previous versions of files to see the
 previous versions. You can also filter by file in the menu
 <code>(all commits)</code>.</p>
+<p><img src="images/newgit7.png" style="width:80.0%" /></p>
 </div>
 <div id="section-a-few-comments" class="section level3">
 <h3>A few comments:</h3>

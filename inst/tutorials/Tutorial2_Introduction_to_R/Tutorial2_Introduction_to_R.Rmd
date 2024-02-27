@@ -38,7 +38,8 @@ For this practical, we will use RStudio in Noteable. You can also do this on you
 1. Create a new project called `penguin_project` by clicking `File > New Project... > New Directory > New Project`. Make sure that the option `Create a git repository` is selected:
 
 ![](images/create_project.png){width="60%"}
-2. Make sure you have the Palmer penguin dataset installed and loaded by typing the following in the Console (bottom left pane):
+
+2. Make sure you have the Palmer penguin dataset installed and loaded by typing the following in the Console (make sure it is selected in the bottom left pane):
 
 ```{r eval = F}
 install.packages("palmerpenguins")
@@ -106,7 +107,7 @@ Using `Help > Markdown Quick Reference` to help you, add text with basic formatt
 
 </div>
 
-### Embedding code in R Markdown.
+## Getting Started with R Markdown.
 
 Code can be embedded into the document in two ways.
 
@@ -146,7 +147,7 @@ In this practical, we will use the libraries `ggplot2`, `dplyr` and `palmerpengu
     library(palmerpenguins)
     ```
     
-You may notice that this results in messages that is not relevant to the document. You can control what is reported using additional arguments within the chunk description. For example, the following will allow the command to run invisibly:
+You may notice that this results in messages that is not relevant to the document. You can control what is reported using additional arguments within the chunk description. For example, adding `include=F` to the first line after the `r` will allow the commands to run invisibly:
 
     ```{r include = F}`r ''`
     library(ggplot2)
@@ -159,7 +160,7 @@ It can also control how results and figures are presented. Try adding a new chun
     str(penguins)
     ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point()
     ```
-and then replacing it with the following, and `knit`ting again:
+and then adding `echo = F, results = "hide"` to the first line, and `knit`ting again:
 
     ```{r echo = F, results = "hide"}`r ''`
     str(penguins)
@@ -210,38 +211,57 @@ Can you edit this chunk to hide the code, hide the warning message, and adjust t
 
 `Git` is a commonly used version control programme. You may have heard of [GitHub](https://github.com) - this website provides access to versions of code, but also allows collaborative working, through bug reports, requests, task management, etc.
 
-When you look at the upper right hand pane of RStudio, you may have a tab that says **Git**. If not:
+When you look at the upper right hand pane of RStudio, you may have a tab that says **Git**. 
+
+![](images/where_is_git.png){width="70%"}
+
+
+If you don't have this:
 
 0. Check you installed git by typing `git` into the **Terminal** tab in the lower left hand pane. If nothing appears, install git to your machine using the instructions at the start of the practical (or in Noteable, make a new project with git enabled).
 1. Go to `Tools > Project Options... > Git/SVN > Version Control System: Select “Git”`. You will probably have to restart RStudio.
 2. If this isn't an option but you installed git, try closing and re-opening RStudio.
 3. Ask me and I'll try to help!
 
-The pane should look something like this:
-
-![](images/git_1_screenshot.png)
-
 FYI: the `.gitignore` file is a text file specifying files and directories that git should ignore - for example, your .Rhistory, .RProj files and so on. For example, if you have very large data or results files, you may not want to commit them to save disk space.
+
+### Configuring `git`
+
+The very first time you run git, you need to configure it. Click into the `Terminal` tab in the bottom left and enter these two lines **NB. Edit these to have your details and not mine!**:
+
+```
+git config --global user.email "Susan.Johnston@ed.ac.uk"
+git config --global user.name "susjoh"
+```
+
+The user name should work with anything; if you have a GitHub account, you can use your user name for that (e.g. mine is `susjoh`).
+
 
 ### The first commit
 
 Click on the boxes under the column `Staged`. These should turn from question marks to a green `A`. This means that you have added these files to the repository. Click `Commit`. A new dialogue should appear:
 
-![](images/git_2_screenshot.png){width="80%"}
+![](images/newgit2.png){width="70%"}
 
-Type in a commit message (such as "First commit") and click "Commit". The dialogue should clear and the `Git` tab should be empty. You have now saved a snapshot in time. You can see your History by clicking the `History` button on the Git tab (it has a little clock). 
+Type in a commit message (such as "First commit") and click "Commit". You should see something like this:
+
+![](images/newgit4.png){width="70%"}
+
+The dialogue should clear and the `Git` tab should be empty. You have now saved a snapshot in time. You can see your History by clicking the `History` button on the Git tab (it has a little clock). 
 
 ### More commits
 
 Let's make another commit. Edit your knitr/analysis file with something unimportant (maybe a comment) and save the file.
 
-![](images/git_3_screenshot.png){width="80%"}
+![](images/newgit5.png){width="80%"}
 
 Now you will see your script with a blue `M` next to it. This means the file has been modified. (If you don't see it, press the little reload arrow at the far right of the pane). Stage it and commit it with a *meaningful* commit message. You will see the file changes in the lower part of the box:
 
-![](images/git_4_screenshot.png){width="80%"}
+![](images/newgit6.png){width="80%"}
 
 Look at the history again, and you will see the new edit. As you add more commits, you can click on previous versions of files to see the previous versions. You can also filter by file in the menu `(all commits)`.
+
+![](images/newgit7.png){width="80%"}
 
 ### A few comments:
 
